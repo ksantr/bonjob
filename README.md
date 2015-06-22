@@ -1,7 +1,7 @@
 =======================================
 # Bonjob - Timer Application for Ubuntu
 =======================================
-**Based on pomodoro technique
+**Based on pomodoro technique**
 
 ## Features
 
