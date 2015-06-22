@@ -8,12 +8,27 @@ logger = logging.getLogger(__name__)
 logformat = '%(name)s - %(levelname)s - %(message)s'
 logging.basicConfig(format=logformat, level=logging.INFO)
 
+
+class SetupError(Exception):
+    def __init__(self, value):
+        self.value = value
+
+    def __str__(self):
+        return repr(self.value)
+
+
 class AppSetup:
     """ Bonjob installation class """
     def __init__(self):
-        self.audacious_reconf()
-        self.create_config()
-        self.put_icon()
+        try:
+            self.audacious_reconf()
+            self.create_config()
+            self.put_icon()
+        except:
+            logger.warning('[-] Installation failed')
+            logger.warning('[!] Try to run manually: Python bonjob.py')
+        else:
+            logger.info('[+] Installation succefully completed')
 
     def put_icon(self):
         """ Copy icon to .local/share/icons/ """
@@ -24,6 +39,7 @@ class AppSetup:
             copyfile(source_icon_path, dest_icon_path)
         except IOError as e:
             logger.info('[-] Copy bonjob.png icon error %s' % e)
+            raise SetupError
         else:
             logger.info('[+] Copy bonjop.png icon to %s' % dest_icon_path)
 
@@ -54,12 +70,16 @@ class AppSetup:
                     f.write(conf)
             except IOError:
                 logger.warning('[-] Config write error: %s' % aconf)
+                raise SetupError
         else:
             conf = re.sub('repeat=FALSE', 'repeat=TRUE', conf)
             conf = re.sub('shuffle=FALSE', 'shuffle=TRUE', conf)
-
-            with open(aconf, 'w') as f:
-                f.write(conf)
+            try:
+                with open(aconf, 'w') as f:
+                    f.write(conf)
+            except IOError:
+                logger.warning('[-] Config write error: %s' % aconf)
+                raise SetupError
 
             logger.info('[+] Write audacious config in %s' % aconf)
 
@@ -85,13 +105,9 @@ class AppSetup:
             config.write(open(conf_path, 'w'))
         except IOError as e:
             logger.warning('[-] %s' % e)
+            raise SetupError
         else:
             logger.info('[+] Create bonjob.desktop in %s' % conf_path)
 
 if __name__ == '__main__':
     setup = AppSetup()
-    '''
-    setup.audacious_reconf()
-    setup.create_config()
-    setup.put_icon()
-    '''
