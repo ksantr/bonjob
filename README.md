@@ -31,7 +31,7 @@
 
 ## Usage
 
-After succefull installation you can simply find Bonjob app in your Uniti Dash panel or in the classic menu indicator.
+After succefull installation you can simply find Bonjob app in your Unity Dash panel or in the classic menu indicator.
 
 ## License
 
