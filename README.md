@@ -1,17 +1,18 @@
 =======================================
 # Bonjob - Timer Application for Ubuntu
 =======================================
-
-Based on pomodoro technique
+**Based on pomodoro technique
 
 ## Features
 
 **Full time control**
-* working duration
+* working time duration
 * time of short and long breaks
-** Music alarms
+
+**Music alarms**
 * random mp3 tracks player (choose folder with your favourite mp3 tracks)
 * single mp3 track player
+
 **Window message**
 * small notify window with messages
 
