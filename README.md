@@ -20,6 +20,7 @@
 
 - Audacious media player
 - Pyhton 2.7
+- GTK3
 
 ## Installation
 
