@@ -1,4 +1,4 @@
-## Bonjob - Timer Application for Ubuntu
+## Bonjob - Pomodoro Timer Application for Ubuntu (Unity compatible)
 **Based on pomodoro technique** (https://en.wikipedia.org/wiki/Pomodoro_Technique)
 
 ![bonjob](https://cloud.githubusercontent.com/assets/12990677/8282599/8512a17c-18fa-11e5-9403-5176f0529901.png)
