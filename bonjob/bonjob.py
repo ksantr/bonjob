@@ -131,18 +131,18 @@ class Bonjob:
             if self.break_counter == float(self.mset.maxshort_break):
                 self.break_counter = 0
                 self.notify('Time for long break')
-                time = float(self.mset.long_break) * 10000
+                time = float(self.mset.long_break) * 100000
                 GObject.timeout_add(time, self.timer)
             else:
                 self.break_counter += 1
                 self.notify('Time for short break')
-                time = float(self.mset.short_break) * 10000
+                time = float(self.mset.short_break) * 100000
                 GObject.timeout_add(time, self.timer)
         else:
             self.state = 'working'
             logger.info('Start %s state' % self.state)
             self.notify('Time to work')
-            time = float(self.mset.pub_time) * 10000
+            time = float(self.mset.pub_time) * 100000
             GObject.timeout_add(time, self.timer)
 
     def notify(self, message):
