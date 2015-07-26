@@ -43,8 +43,8 @@ class MenuSet(Gtk.Window):
             config.set('main', 'pub_time', str(self.pub_time))
         except NoSectionError as e:
             config.add_section('main')
-            config.set('main', 'pub_time', str(self.pub_time))
-
+            
+        config.set('main', 'pub_time', str(self.pub_time))
         config.set('main', 'short_break', str(self.short_break))
         config.set('main', 'maxshort_break', str(self.maxshort_break))
         config.set('main', 'long_break', str(self.long_break))
