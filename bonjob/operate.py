@@ -35,7 +35,6 @@ class MenuSet(Gtk.Window):
         abs_path = os.path.abspath(real)
         return abs_path
 
-
     def update_config(self):
         """ Save current settings to config.ini """
         config = SafeConfigParser()
@@ -59,7 +58,6 @@ class MenuSet(Gtk.Window):
             config.write(open(self.confpath, 'w'))
         except IOError as e:
             logger.warning(e)
-
 
     def song_switch_click(self, switch, gparam):
         if switch.get_active():
