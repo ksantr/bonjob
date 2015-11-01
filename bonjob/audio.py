@@ -5,13 +5,13 @@ import subprocess
 
 logger = logging.getLogger(__name__)
 
+
 class Player:
     """
     Audio player for Bonjob.
     This player uses the Audacious player.
     init with dafault song value
     """
-
     def __init__(self):
         # init with dafault sound
         dirname = os.path.dirname(__file__)
